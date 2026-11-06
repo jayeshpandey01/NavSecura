@@ -1,0 +1,23 @@
+# NavSecura Computer Vision Engineering Assessment
+# Pinned Dependencies for Python 3.10+ (macOS Apple Silicon & Linux x86_64)
+
+# Core Computer Vision & Deep Learning
+ultralytics>=8.3.0
+opencv-python>=4.10.0.84
+torch>=2.2.0
+torchvision>=0.17.0
+numpy>=1.26.0,<2.0.0
+scipy>=1.11.0
+lapx>=0.5.5
+
+# Geometry & Polygon Spatial Operations
+shapely>=2.0.0
+
+# Configuration & Data Handling
+pyyaml>=6.0.1
+pydantic>=2.7.0
+
+# Testing & Tooling
+pytest>=8.0.0
+matplotlib>=3.8.0
+tqdm>=4.66.0

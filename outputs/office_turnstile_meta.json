@@ -1,0 +1,28 @@
+{
+  "file_name": "office_turnstile.mp4",
+  "file_stem": "office_turnstile",
+  "file_path": "/Users/jayesh/Documents/opencv/data/office_turnstile.mp4",
+  "file_size_bytes": 3291918,
+  "file_size_mb": 3.14,
+  "md5_hash": "17517f6c01f6731db459680be543f8fc",
+  "container_metadata": {
+    "width": 768,
+    "height": 432,
+    "diagonal_px": 881.2,
+    "aspect_ratio": "16:9",
+    "header_fps": 10.0,
+    "header_frame_count": 1394,
+    "header_duration_s": 139.4,
+    "codec_fourcc": "h264",
+    "fourcc_numeric": 875967080
+  },
+  "decode_verification": {
+    "decoded_frames": 1394,
+    "dropped_or_corrupt_frames": 0,
+    "actual_duration_s": 139.4,
+    "elapsed_decode_seconds": 0.3569,
+    "decode_throughput_fps": 3906.2,
+    "is_frame_count_consistent": true,
+    "stream_valid": true
+  }
+}

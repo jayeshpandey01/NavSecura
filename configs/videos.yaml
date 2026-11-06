@@ -1,0 +1,46 @@
+scenarios:
+  concourse:
+    video_path: "data/sample.mp4"
+    domain: "public_concourse"
+    camera_id: "cam_entrance_01"
+    roi_id: "roi_entrance"
+    description: "Entrance foyer and public pedestrian concourse with multi-target crossing"
+    nominal_fps: 12.0
+    nominal_resolution: [768, 432]
+
+  shop:
+    video_path: "data/shop_aisle.mp4"
+    domain: "retail_shop"
+    camera_id: "cam_retail_shop_01"
+    roi_id: "roi_shop_aisle"
+    description: "Retail grocery and merchandise aisle with customer browsing and dwell"
+    nominal_fps: 59.94
+    nominal_resolution: [720, 404]
+
+  office:
+    video_path: "data/office_room.mp4"
+    domain: "workplace_office"
+    camera_id: "cam_office_boardroom_01"
+    roi_id: "roi_office_room"
+    description: "Corporate office, presentation podium, and executive conference room (1080p)"
+    nominal_fps: 30.0
+    nominal_resolution: [1920, 1080]
+
+  restaurant_cafe:
+    video_path: "data/cafe_dining.mp4"
+    domain: "restaurant_cafe"
+    camera_id: "cam_cafe_dining_01"
+    roi_id: "roi_cafe_dining"
+    description: "Cafe dining counter, queue line, and patron ordering pause area"
+    nominal_fps: 12.0
+    nominal_resolution: [768, 432]
+
+  turnstile:
+    video_path: "data/office_turnstile.mp4"
+    domain: "security_access"
+    camera_id: "cam_office_turnstile_01"
+    roi_id: "roi_office_turnstile"
+    description: "Corporate access control security turnstile entrance gate"
+    nominal_fps: 10.0
+    nominal_resolution: [768, 432]
+

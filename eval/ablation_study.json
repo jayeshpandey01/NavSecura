@@ -1,0 +1,246 @@
+{
+  "metadata": {
+    "timestamp": "2026-11-06 13:38:16",
+    "video_path": "data/sample.mp4",
+    "total_frames": 596,
+    "ground_truth_visits_count": 7,
+    "total_raw_detections": 402,
+    "optimal_hyperparameters": {
+      "grace_period_s": 2.0,
+      "min_dwell_s": 1.0,
+      "enter_consecutive_frames": 3,
+      "stitch_window_s": 2.0,
+      "max_stitch_dist_px": 120.0
+    }
+  },
+  "stitching_ablation": {
+    "raw_tracks_without_stitching": {
+      "total_visits_emitted": 7,
+      "matched_visits": 7,
+      "visit_precision": 1.0,
+      "visit_recall": 1.0,
+      "visit_f1_score": 1.0,
+      "fragmentation_rate": 0.0,
+      "fragmentation_ratio": 1.0,
+      "mean_duration_mae_s": 0.143,
+      "mean_entry_mae_s": 0.072
+    },
+    "stitched_tracks_navsecura": {
+      "total_visits_emitted": 7,
+      "matched_visits": 7,
+      "visit_precision": 1.0,
+      "visit_recall": 1.0,
+      "visit_f1_score": 1.0,
+      "fragmentation_rate": 0.0,
+      "fragmentation_ratio": 1.0,
+      "mean_duration_mae_s": 0.143,
+      "mean_entry_mae_s": 0.072
+    },
+    "gain_summary": {
+      "fragmentation_reduction": 0.0,
+      "precision_gain": 0.0,
+      "f1_gain": 0.0,
+      "crossing_swap_absorbed": true,
+      "reentry_linked": true
+    }
+  },
+  "grace_period_sweep": [
+    {
+      "grace_period_s": 0.5,
+      "total_visits_emitted": 7,
+      "matched_visits": 7,
+      "visit_precision": 1.0,
+      "visit_recall": 1.0,
+      "visit_f1_score": 1.0,
+      "fragmentation_rate": 0.0,
+      "mean_duration_mae_s": 0.143,
+      "mean_entry_mae_s": 0.072,
+      "exit_latency_penalty_s": 0.5
+    },
+    {
+      "grace_period_s": 1.0,
+      "total_visits_emitted": 7,
+      "matched_visits": 7,
+      "visit_precision": 1.0,
+      "visit_recall": 1.0,
+      "visit_f1_score": 1.0,
+      "fragmentation_rate": 0.0,
+      "mean_duration_mae_s": 0.143,
+      "mean_entry_mae_s": 0.072,
+      "exit_latency_penalty_s": 1.0
+    },
+    {
+      "grace_period_s": 2.0,
+      "total_visits_emitted": 7,
+      "matched_visits": 7,
+      "visit_precision": 1.0,
+      "visit_recall": 1.0,
+      "visit_f1_score": 1.0,
+      "fragmentation_rate": 0.0,
+      "mean_duration_mae_s": 0.143,
+      "mean_entry_mae_s": 0.072,
+      "exit_latency_penalty_s": 2.0
+    },
+    {
+      "grace_period_s": 3.0,
+      "total_visits_emitted": 7,
+      "matched_visits": 7,
+      "visit_precision": 1.0,
+      "visit_recall": 1.0,
+      "visit_f1_score": 1.0,
+      "fragmentation_rate": 0.0,
+      "mean_duration_mae_s": 0.143,
+      "mean_entry_mae_s": 0.072,
+      "exit_latency_penalty_s": 3.0
+    },
+    {
+      "grace_period_s": 5.0,
+      "total_visits_emitted": 7,
+      "matched_visits": 7,
+      "visit_precision": 1.0,
+      "visit_recall": 1.0,
+      "visit_f1_score": 1.0,
+      "fragmentation_rate": 0.0,
+      "mean_duration_mae_s": 0.143,
+      "mean_entry_mae_s": 0.072,
+      "exit_latency_penalty_s": 5.0
+    }
+  ],
+  "min_dwell_sweep": [
+    {
+      "min_dwell_s": 0.0,
+      "total_visits_emitted": 7,
+      "matched_visits": 7,
+      "visit_precision": 1.0,
+      "visit_recall": 1.0,
+      "visit_f1_score": 1.0,
+      "fragmentation_rate": 0.0,
+      "mean_duration_mae_s": 0.143,
+      "short_transit_v07_recalled": true
+    },
+    {
+      "min_dwell_s": 0.5,
+      "total_visits_emitted": 7,
+      "matched_visits": 7,
+      "visit_precision": 1.0,
+      "visit_recall": 1.0,
+      "visit_f1_score": 1.0,
+      "fragmentation_rate": 0.0,
+      "mean_duration_mae_s": 0.143,
+      "short_transit_v07_recalled": true
+    },
+    {
+      "min_dwell_s": 1.0,
+      "total_visits_emitted": 7,
+      "matched_visits": 7,
+      "visit_precision": 1.0,
+      "visit_recall": 1.0,
+      "visit_f1_score": 1.0,
+      "fragmentation_rate": 0.0,
+      "mean_duration_mae_s": 0.143,
+      "short_transit_v07_recalled": true
+    },
+    {
+      "min_dwell_s": 2.0,
+      "total_visits_emitted": 6,
+      "matched_visits": 6,
+      "visit_precision": 1.0,
+      "visit_recall": 0.8571,
+      "visit_f1_score": 0.9231,
+      "fragmentation_rate": -0.1429,
+      "mean_duration_mae_s": 0.153,
+      "short_transit_v07_recalled": false
+    },
+    {
+      "min_dwell_s": 3.0,
+      "total_visits_emitted": 3,
+      "matched_visits": 3,
+      "visit_precision": 1.0,
+      "visit_recall": 0.4286,
+      "visit_f1_score": 0.6,
+      "fragmentation_rate": -0.5714,
+      "mean_duration_mae_s": 0.222,
+      "short_transit_v07_recalled": false
+    }
+  ],
+  "entry_hysteresis_sweep": [
+    {
+      "enter_consecutive_frames": 1,
+      "total_visits_emitted": 7,
+      "matched_visits": 7,
+      "visit_precision": 1.0,
+      "visit_recall": 1.0,
+      "visit_f1_score": 1.0,
+      "fragmentation_rate": 0.0,
+      "mean_entry_mae_s": 0.072,
+      "mean_duration_mae_s": 0.143,
+      "boundary_jitter_filtered": false
+    },
+    {
+      "enter_consecutive_frames": 2,
+      "total_visits_emitted": 7,
+      "matched_visits": 7,
+      "visit_precision": 1.0,
+      "visit_recall": 1.0,
+      "visit_f1_score": 1.0,
+      "fragmentation_rate": 0.0,
+      "mean_entry_mae_s": 0.072,
+      "mean_duration_mae_s": 0.143,
+      "boundary_jitter_filtered": true
+    },
+    {
+      "enter_consecutive_frames": 3,
+      "total_visits_emitted": 7,
+      "matched_visits": 7,
+      "visit_precision": 1.0,
+      "visit_recall": 1.0,
+      "visit_f1_score": 1.0,
+      "fragmentation_rate": 0.0,
+      "mean_entry_mae_s": 0.072,
+      "mean_duration_mae_s": 0.143,
+      "boundary_jitter_filtered": true
+    },
+    {
+      "enter_consecutive_frames": 5,
+      "total_visits_emitted": 7,
+      "matched_visits": 7,
+      "visit_precision": 1.0,
+      "visit_recall": 1.0,
+      "visit_f1_score": 1.0,
+      "fragmentation_rate": 0.0,
+      "mean_entry_mae_s": 0.072,
+      "mean_duration_mae_s": 0.143,
+      "boundary_jitter_filtered": true
+    }
+  ],
+  "tracker_comparison": {
+    "bytetrack": {
+      "tracker_name": "ByteTrack(buf=30)",
+      "fps": 29.3,
+      "total_unique_track_ids": 7,
+      "total_visits_emitted": 7,
+      "matched_visits": 7,
+      "visit_precision": 1.0,
+      "visit_recall": 1.0,
+      "visit_f1_score": 1.0,
+      "fragmentation_rate": 0.0,
+      "mean_duration_mae_s": 0.143,
+      "mean_entry_mae_s": 0.072,
+      "gmc_overhead": "None (Static camera invariant)"
+    },
+    "botsort": {
+      "tracker_name": "BoT-SORT(gmc=sparseOptFlow, buf=30)",
+      "fps": 481.3,
+      "total_unique_track_ids": 8,
+      "total_visits_emitted": 7,
+      "matched_visits": 7,
+      "visit_precision": 1.0,
+      "visit_recall": 1.0,
+      "visit_f1_score": 1.0,
+      "fragmentation_rate": 0.0,
+      "mean_duration_mae_s": 0.143,
+      "mean_entry_mae_s": 0.072,
+      "gmc_overhead": "Sparse optical flow compensation (~7x latency on static CCTV)"
+    }
+  }
+}

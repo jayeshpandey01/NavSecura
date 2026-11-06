@@ -1,0 +1,22 @@
+# Python virtual environment & bytecode caches
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+
+# Operating System & IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+.ipynb_checkpoints/
+
+# Pretrained model weights & heavy intermediate caches
+*.pt
+*.onnx
+outputs/baseline_model.json
+outputs/sample_tracking_baseline.mp4

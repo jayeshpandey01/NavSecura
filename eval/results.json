@@ -1,0 +1,94 @@
+{
+  "total_ground_truth_visits": 7,
+  "total_predicted_visits": 7,
+  "matched_visits": 7,
+  "temporal_iou_threshold": 0.5,
+  "visit_precision": 1.0,
+  "visit_recall": 1.0,
+  "visit_f1_score": 1.0,
+  "fragmentation_rate": 0.0,
+  "fragmentation_ratio": 1.0,
+  "mean_duration_mae_s": 0.143,
+  "mean_entry_mae_s": 0.072,
+  "total_raw_detections": 402,
+  "event_reduction_ratio": "57.4:1",
+  "match_records": [
+    {
+      "ground_truth_id": "V01",
+      "predicted_visit_id": "6087555b",
+      "person_id_gt": "P1",
+      "person_id_pred": "P1",
+      "temporal_iou": 1.0,
+      "gt_interval": "2.33s - 5.58s (3.25s)",
+      "pred_interval": "2.33s - 5.58s (3.25s)",
+      "duration_error_s": 0.0,
+      "entry_error_s": 0.0
+    },
+    {
+      "ground_truth_id": "V03",
+      "predicted_visit_id": "f6ab295e",
+      "person_id_gt": "P3",
+      "person_id_pred": "P2",
+      "temporal_iou": 0.9689,
+      "gt_interval": "16.42s - 19.08s (2.67s)",
+      "pred_interval": "16.42s - 19.00s (2.58s)",
+      "duration_error_s": 0.084,
+      "entry_error_s": 0.0
+    },
+    {
+      "ground_truth_id": "V04",
+      "predicted_visit_id": "75295225",
+      "person_id_gt": "P4",
+      "person_id_pred": "P4",
+      "temporal_iou": 0.9679,
+      "gt_interval": "29.75s - 32.33s (2.58s)",
+      "pred_interval": "29.75s - 32.25s (2.50s)",
+      "duration_error_s": 0.083,
+      "entry_error_s": 0.0
+    },
+    {
+      "ground_truth_id": "V06",
+      "predicted_visit_id": "92cdad1b",
+      "person_id_gt": "P6",
+      "person_id_pred": "P5",
+      "temporal_iou": 0.9644,
+      "gt_interval": "30.42s - 32.75s (2.33s)",
+      "pred_interval": "30.42s - 32.67s (2.25s)",
+      "duration_error_s": 0.083,
+      "entry_error_s": 0.0
+    },
+    {
+      "ground_truth_id": "V07",
+      "predicted_visit_id": "ee76d1c2",
+      "person_id_gt": "P6",
+      "person_id_pred": "P4",
+      "temporal_iou": 0.9502,
+      "gt_interval": "44.33s - 46.00s (1.67s)",
+      "pred_interval": "44.33s - 45.92s (1.58s)",
+      "duration_error_s": 0.084,
+      "entry_error_s": 0.0
+    },
+    {
+      "ground_truth_id": "V02",
+      "predicted_visit_id": "06c39f17",
+      "person_id_gt": "P2",
+      "person_id_pred": "P3",
+      "temporal_iou": 0.9486,
+      "gt_interval": "16.33s - 19.58s (3.25s)",
+      "pred_interval": "16.42s - 19.50s (3.08s)",
+      "duration_error_s": 0.167,
+      "entry_error_s": 0.084
+    },
+    {
+      "ground_truth_id": "V05",
+      "predicted_visit_id": "acd99521",
+      "person_id_gt": "P5",
+      "person_id_pred": "P6",
+      "temporal_iou": 0.8773,
+      "gt_interval": "29.33s - 33.42s (4.08s)",
+      "pred_interval": "29.75s - 33.33s (3.58s)",
+      "duration_error_s": 0.5,
+      "entry_error_s": 0.417
+    }
+  ]
+}

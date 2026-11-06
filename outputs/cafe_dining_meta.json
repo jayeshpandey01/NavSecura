@@ -1,0 +1,28 @@
+{
+  "file_name": "cafe_dining.mp4",
+  "file_stem": "cafe_dining",
+  "file_path": "/Users/jayesh/Documents/opencv/data/cafe_dining.mp4",
+  "file_size_bytes": 9406029,
+  "file_size_mb": 8.97,
+  "md5_hash": "fb2581788f055d8cbb3900df9fb0dd65",
+  "container_metadata": {
+    "width": 768,
+    "height": 432,
+    "diagonal_px": 881.2,
+    "aspect_ratio": "16:9",
+    "header_fps": 12.0,
+    "header_frame_count": 1091,
+    "header_duration_s": 90.917,
+    "codec_fourcc": "h264",
+    "fourcc_numeric": 875967080
+  },
+  "decode_verification": {
+    "decoded_frames": 1091,
+    "dropped_or_corrupt_frames": 0,
+    "actual_duration_s": 90.917,
+    "elapsed_decode_seconds": 0.3015,
+    "decode_throughput_fps": 3618.42,
+    "is_frame_count_consistent": true,
+    "stream_valid": true
+  }
+}

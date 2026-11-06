@@ -1,0 +1,70 @@
+{
+  "rois": [
+    {
+      "roi_id": "roi_entrance",
+      "camera_id": "cam_entrance_01",
+      "name": "Main Concourse Entrance Gateway",
+      "description": "Pedestrian concourse and entrance monitoring zone in sample.mp4",
+      "coordinates_norm": [
+        [0.130, 0.532],
+        [0.872, 0.532],
+        [0.938, 0.961],
+        [0.065, 0.961]
+      ],
+      "foot_point_mode": "bottom_center"
+    },
+    {
+      "roi_id": "roi_shop_aisle",
+      "camera_id": "cam_retail_shop_01",
+      "name": "Retail Store Aisle & Product Shelves",
+      "description": "Shop aisle browsing, shelf linger, and customer transit zone in shop_aisle.mp4",
+      "coordinates_norm": [
+        [0.350, 0.550],
+        [0.950, 0.550],
+        [0.980, 0.980],
+        [0.450, 0.980]
+      ],
+      "foot_point_mode": "bottom_center"
+    },
+    {
+      "roi_id": "roi_office_room",
+      "camera_id": "cam_office_boardroom_01",
+      "name": "Corporate Office & Presentation Area",
+      "description": "Executive meeting room, podium, and active presentation zone in office_room.mp4 (1080p)",
+      "coordinates_norm": [
+        [0.300, 0.550],
+        [0.650, 0.550],
+        [0.700, 0.950],
+        [0.250, 0.950]
+      ],
+      "foot_point_mode": "bottom_center"
+    },
+    {
+      "roi_id": "roi_cafe_dining",
+      "camera_id": "cam_cafe_dining_01",
+      "name": "Cafe Counter & Dining Pause Area",
+      "description": "Ordering counter, queue line, and patron dwell area in cafe_dining.mp4",
+      "coordinates_norm": [
+        [0.200, 0.450],
+        [0.800, 0.450],
+        [0.850, 0.950],
+        [0.150, 0.950]
+      ],
+      "foot_point_mode": "bottom_center"
+    },
+    {
+      "roi_id": "roi_office_turnstile",
+      "camera_id": "cam_office_turnstile_01",
+      "name": "Corporate Security Turnstile Gate",
+      "description": "Access control security portal and ingress turnstile corridor in office_turnstile.mp4",
+      "coordinates_norm": [
+        [0.400, 0.450],
+        [0.850, 0.450],
+        [0.880, 0.980],
+        [0.350, 0.980]
+      ],
+      "foot_point_mode": "bottom_center"
+    }
+  ]
+}
+

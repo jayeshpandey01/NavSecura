@@ -1,0 +1,26 @@
+{
+  "file_name": "sample.mp4",
+  "file_path": "/Users/jayesh/Documents/opencv/data/sample.mp4",
+  "file_size_bytes": 5482579,
+  "file_size_mb": 5.23,
+  "md5_hash": "69dafa7fd143c2bee7f216431304b071",
+  "container_metadata": {
+    "width": 768,
+    "height": 432,
+    "aspect_ratio": "16:9",
+    "header_fps": 12.0,
+    "header_frame_count": 596,
+    "header_duration_s": 49.667,
+    "codec_fourcc": "h264",
+    "fourcc_numeric": 875967080
+  },
+  "decode_verification": {
+    "decoded_frames": 596,
+    "dropped_or_corrupt_frames": 0,
+    "actual_duration_s": 49.667,
+    "elapsed_decode_seconds": 0.2256,
+    "decode_throughput_fps": 2641.75,
+    "is_frame_count_consistent": true,
+    "stream_valid": true
+  }
+}

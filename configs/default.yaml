@@ -1,0 +1,54 @@
+# configs/default.yaml
+# NavSecura Computer Vision Pipeline Configuration
+# Governs Detection, ByteTrack/BoT-SORT Tracking, Foot-point ROI, and Event Lifecycle
+
+pipeline:
+  name: "navsecura-video-analytics"
+  version: "1.0.0"
+  random_seed: 42
+
+video:
+  source: "data/sample.mp4"
+  camera_id: "cam_entrance_01"
+  target_fps: null # null preserves native stream FPS
+
+detector:
+  model_type: "yolo" # options: "yolo", "rfdetr"
+  weights: "yolo11n.pt" # lightweight default; balances latency and recall
+  confidence_threshold: 0.35
+  iou_threshold: 0.70
+  classes: [0] # COCO class 0: person
+  device: "cpu" # "cpu", "cuda", "mps"
+
+tracker:
+  type: "bytetrack" # options: "bytetrack", "botsort"
+  track_high_thresh: 0.50
+  track_low_thresh: 0.10
+  new_track_thresh: 0.60
+  match_thresh: 0.80
+  track_buffer: 30 # frames to retain lost tracks in Kalman predictor
+
+roi:
+  config_path: "configs/roi_example.json"
+  foot_point_position: "bottom_center" # foot-point: ((x1 + x2)/2, y2)
+
+events:
+  enter_consecutive_frames: 3 # temporal hysteresis: required consecutive frames inside ROI
+  grace_period_s: 2.0 # grace window to bridge brief occlusions before closing visit
+  min_dwell_s: 1.0 # minimum dwell duration; filters transient detector artifacts
+  stitching:
+    enabled: true
+    max_time_gap_s: 5.0
+    max_distance_px: 150.0
+
+store:
+  db_path: "outputs/events.db"
+  wal_mode: true # Write-Ahead Logging for high-concurrency event ingestion
+
+evidence:
+  output_dir: "outputs"
+  save_snapshots: true
+  save_clips: true
+  pre_roll_s: 3.0 # seconds of footage buffered prior to ROI entry
+  post_roll_s: 3.0 # seconds of footage recorded following visit close
+

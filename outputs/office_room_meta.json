@@ -1,0 +1,28 @@
+{
+  "file_name": "office_room.mp4",
+  "file_stem": "office_room",
+  "file_path": "/Users/jayesh/Documents/opencv/data/office_room.mp4",
+  "file_size_bytes": 13548133,
+  "file_size_mb": 12.92,
+  "md5_hash": "67ddc9d57eea33af99eb9eccda3711ca",
+  "container_metadata": {
+    "width": 1920,
+    "height": 1080,
+    "diagonal_px": 2202.9,
+    "aspect_ratio": "16:9",
+    "header_fps": 30.0,
+    "header_frame_count": 984,
+    "header_duration_s": 32.8,
+    "codec_fourcc": "h264",
+    "fourcc_numeric": 875967080
+  },
+  "decode_verification": {
+    "decoded_frames": 984,
+    "dropped_or_corrupt_frames": 0,
+    "actual_duration_s": 32.8,
+    "elapsed_decode_seconds": 1.8879,
+    "decode_throughput_fps": 521.22,
+    "is_frame_count_consistent": true,
+    "stream_valid": true
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "file_name": "shop_aisle.mp4",
+  "file_stem": "shop_aisle",
+  "file_path": "/Users/jayesh/Documents/opencv/data/shop_aisle.mp4",
+  "file_size_bytes": 9214573,
+  "file_size_mb": 8.79,
+  "md5_hash": "ab4fe9dcf11673e06ddbacf7484266b0",
+  "container_metadata": {
+    "width": 720,
+    "height": 404,
+    "diagonal_px": 825.6,
+    "aspect_ratio": "16:9",
+    "header_fps": 59.94005994005994,
+    "header_frame_count": 3921,
+    "header_duration_s": 65.415,
+    "codec_fourcc": "h264",
+    "fourcc_numeric": 875967080
+  },
+  "decode_verification": {
+    "decoded_frames": 3921,
+    "dropped_or_corrupt_frames": 0,
+    "actual_duration_s": 65.415,
+    "elapsed_decode_seconds": 1.1176,
+    "decode_throughput_fps": 3508.45,
+    "is_frame_count_consistent": true,
+    "stream_valid": true
+  }
+}

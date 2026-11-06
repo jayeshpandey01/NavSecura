@@ -1,0 +1,102 @@
+{
+  "benchmark_metadata": {
+    "timestamp": "2026-11-06 13:34:51",
+    "video_source": "data/sample.mp4",
+    "detector_architecture": "YOLO-yolo11n",
+    "total_frames_evaluated": 596
+  },
+  "bytetrack_benchmark": {
+    "tracker_name": "ByteTrack(buf=30)",
+    "tracker_type": "bytetrack",
+    "total_frames": 596,
+    "wall_time_s": 20.11,
+    "overall_fps": 29.6,
+    "avg_detector_latency_ms": 33.06,
+    "avg_tracker_latency_ms": 0.2,
+    "median_tracker_latency_ms": 0.12,
+    "p95_tracker_latency_ms": 0.45,
+    "total_unique_tracks": 7,
+    "unique_track_ids": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      8
+    ],
+    "crossing_unique_ids": [
+      2,
+      3
+    ],
+    "crossing_id_count": 2,
+    "converging_unique_ids": [
+      4,
+      5,
+      6
+    ],
+    "converging_id_count": 3,
+    "reentry_unique_ids": [
+      8
+    ]
+  },
+  "botsort_benchmark": {
+    "tracker_name": "BoT-SORT(gmc=sparseOptFlow, buf=30)",
+    "tracker_type": "botsort",
+    "total_frames": 596,
+    "wall_time_s": 1.199,
+    "overall_fps": 496.9,
+    "avg_detector_latency_ms": 0.0,
+    "avg_tracker_latency_ms": 1.64,
+    "median_tracker_latency_ms": 1.35,
+    "p95_tracker_latency_ms": 3.31,
+    "total_unique_tracks": 8,
+    "unique_track_ids": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "crossing_unique_ids": [
+      2,
+      3
+    ],
+    "crossing_id_count": 2,
+    "converging_unique_ids": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "converging_id_count": 4,
+    "reentry_unique_ids": [
+      8
+    ]
+  },
+  "side_by_side_comparison": {
+    "latency_ratio_botsort_to_bytetrack": 8.2,
+    "fps_ratio_bytetrack_to_botsort": 0.06,
+    "id_switch_stability_crossing": {
+      "ground_truth_target_count": 2,
+      "bytetrack_unique_ids": [
+        2,
+        3
+      ],
+      "botsort_unique_ids": [
+        2,
+        3
+      ],
+      "bytetrack_passed": true,
+      "botsort_passed": true
+    },
+    "snapshots_generated": [
+      "outputs/tracker_comparison/compare_frame_0215.jpg",
+      "outputs/tracker_comparison/compare_frame_0380.jpg",
+      "outputs/tracker_comparison/compare_frame_0540.jpg"
+    ]
+  }
+}

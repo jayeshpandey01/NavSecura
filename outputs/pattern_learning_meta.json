@@ -1,0 +1,158 @@
+{
+  "metadata": {
+    "timestamp": "2026-11-06T08:46:22.316923+00:00",
+    "simulation_label": "Simulated 4-Week Baseline Dataset (Non-Retraining)",
+    "database_source": "outputs/events.db",
+    "roi_id": "roi_entrance",
+    "total_historical_reference_visits": 2663,
+    "total_empirical_scored_visits": 7
+  },
+  "statistical_model_summary": {
+    "total_ingested_visits": 9,
+    "last_update_timestamp": "2026-11-06T14:16:21.629040",
+    "half_life_days": 28.0,
+    "dwell_z_threshold": 2.0,
+    "hstree_threshold": 0.65,
+    "peak_traffic_period": {
+      "day_of_week": 3,
+      "hour": 12,
+      "expected_rate": 11.41
+    },
+    "dwell_distributions": {
+      "roi_entrance": {
+        "count": 2663,
+        "median_dwell_s": 3.2,
+        "log_mean": 1.1629,
+        "log_std_dev": 0.3554
+      }
+    },
+    "hstree_ensemble": {
+      "num_trees": 25,
+      "max_depth": 10,
+      "total_samples": 2663
+    }
+  },
+  "empirical_visits_scored": [
+    {
+      "visit_id": "6087555b",
+      "track_id": 1,
+      "roi_id": "roi_entrance",
+      "duration_s": 3.25,
+      "dwell_z_score": 0.04,
+      "expected_median_dwell_s": 3.2,
+      "volume_expected_rate": 5.21,
+      "volume_z_score": -1.84,
+      "hstree_anomaly_score": 0.0,
+      "is_anomaly": false,
+      "anomaly_type": "NORMAL"
+    },
+    {
+      "visit_id": "06c39f17",
+      "track_id": 2,
+      "roi_id": "roi_entrance",
+      "duration_s": 3.083,
+      "dwell_z_score": -0.1,
+      "expected_median_dwell_s": 3.2,
+      "volume_expected_rate": 5.21,
+      "volume_z_score": -1.84,
+      "hstree_anomaly_score": 0.0,
+      "is_anomaly": false,
+      "anomaly_type": "NORMAL"
+    },
+    {
+      "visit_id": "f6ab295e",
+      "track_id": 3,
+      "roi_id": "roi_entrance",
+      "duration_s": 2.583,
+      "dwell_z_score": -0.6,
+      "expected_median_dwell_s": 3.2,
+      "volume_expected_rate": 5.21,
+      "volume_z_score": -1.84,
+      "hstree_anomaly_score": 0.0,
+      "is_anomaly": false,
+      "anomaly_type": "NORMAL"
+    },
+    {
+      "visit_id": "75295225",
+      "track_id": 4,
+      "roi_id": "roi_entrance",
+      "duration_s": 2.5,
+      "dwell_z_score": -0.69,
+      "expected_median_dwell_s": 3.2,
+      "volume_expected_rate": 5.21,
+      "volume_z_score": -1.84,
+      "hstree_anomaly_score": 0.0,
+      "is_anomaly": false,
+      "anomaly_type": "NORMAL"
+    },
+    {
+      "visit_id": "acd99521",
+      "track_id": 6,
+      "roi_id": "roi_entrance",
+      "duration_s": 3.583,
+      "dwell_z_score": 0.32,
+      "expected_median_dwell_s": 3.2,
+      "volume_expected_rate": 5.21,
+      "volume_z_score": -1.84,
+      "hstree_anomaly_score": 0.0,
+      "is_anomaly": false,
+      "anomaly_type": "NORMAL"
+    },
+    {
+      "visit_id": "92cdad1b",
+      "track_id": 5,
+      "roi_id": "roi_entrance",
+      "duration_s": 2.25,
+      "dwell_z_score": -0.99,
+      "expected_median_dwell_s": 3.2,
+      "volume_expected_rate": 5.21,
+      "volume_z_score": -1.84,
+      "hstree_anomaly_score": 0.0,
+      "is_anomaly": false,
+      "anomaly_type": "NORMAL"
+    },
+    {
+      "visit_id": "ee76d1c2",
+      "track_id": 8,
+      "roi_id": "roi_entrance",
+      "duration_s": 1.583,
+      "dwell_z_score": -1.98,
+      "expected_median_dwell_s": 3.2,
+      "volume_expected_rate": 5.21,
+      "volume_z_score": -1.84,
+      "hstree_anomaly_score": 0.0,
+      "is_anomaly": false,
+      "anomaly_type": "NORMAL"
+    }
+  ],
+  "synthetic_anomalies_evaluated": [
+    {
+      "visit_id": "anom_off",
+      "track_id": 9001,
+      "roi_id": "roi_entrance",
+      "duration_s": 4.0,
+      "dwell_z_score": 0.63,
+      "expected_median_dwell_s": 3.2,
+      "volume_expected_rate": 0.01,
+      "volume_z_score": 9.9,
+      "hstree_anomaly_score": 0.0,
+      "is_anomaly": true,
+      "anomaly_type": "OFF_HOURS_SURGE",
+      "expected_anomaly": "OFF_HOURS_SURGE"
+    },
+    {
+      "visit_id": "anom_lin",
+      "track_id": 9002,
+      "roi_id": "roi_entrance",
+      "duration_s": 1500.0,
+      "dwell_z_score": 17.3,
+      "expected_median_dwell_s": 3.2,
+      "volume_expected_rate": 5.21,
+      "volume_z_score": -1.84,
+      "hstree_anomaly_score": 0.0001,
+      "is_anomaly": true,
+      "anomaly_type": "LINGERING_ANOMALY",
+      "expected_anomaly": "LINGERING_ANOMALY"
+    }
+  ]
+}

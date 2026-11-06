@@ -1,0 +1,213 @@
+{
+  "pipeline_metadata": {
+    "timestamp": "2026-11-06 13:26:24",
+    "video_source": "data/sample.mp4",
+    "camera_id": "cam_entrance_01",
+    "roi_id": "roi_entrance",
+    "resolution": [
+      768,
+      432
+    ],
+    "native_fps": 12.0,
+    "total_frames": 596,
+    "total_duration_s": 49.667
+  },
+  "performance_benchmarks": {
+    "wall_clock_time_s": 20.615,
+    "overall_processing_fps": 28.9,
+    "average_detector_latency_ms": 32.15,
+    "average_tracker_latency_ms": 0.2,
+    "total_raw_person_detections": 402,
+    "total_emitted_visits": 7,
+    "event_reduction_ratio": "57.4:1"
+  },
+  "visit_evaluation": {
+    "ground_truth_visits": 7,
+    "predicted_visits": 7,
+    "matched_visits": 7,
+    "visit_precision": 1.0,
+    "visit_recall": 1.0,
+    "visit_f1_score": 1.0,
+    "fragmentation_rate": 0.0,
+    "mean_dwell_error_mae_s": 0.143
+  },
+  "evidence_catalog": [
+    {
+      "visit_id": "6087555b",
+      "track_id": 1,
+      "snapshot_entry": "outputs/snapshots/entry_6087555b_t1.jpg",
+      "snapshot_peak": "outputs/snapshots/peak_6087555b_t1.jpg",
+      "clip_path": "outputs/clips/clip_6087555b_t1.mp4",
+      "entry_exists": true,
+      "peak_exists": true,
+      "clip_exists": true,
+      "all_valid": true
+    },
+    {
+      "visit_id": "f6ab295e",
+      "track_id": 3,
+      "snapshot_entry": "outputs/snapshots/entry_f6ab295e_t3.jpg",
+      "snapshot_peak": "outputs/snapshots/peak_f6ab295e_t3.jpg",
+      "clip_path": "outputs/clips/clip_f6ab295e_t3.mp4",
+      "entry_exists": true,
+      "peak_exists": true,
+      "clip_exists": true,
+      "all_valid": true
+    },
+    {
+      "visit_id": "06c39f17",
+      "track_id": 2,
+      "snapshot_entry": "outputs/snapshots/entry_06c39f17_t2.jpg",
+      "snapshot_peak": "outputs/snapshots/peak_06c39f17_t2.jpg",
+      "clip_path": "outputs/clips/clip_06c39f17_t2.mp4",
+      "entry_exists": true,
+      "peak_exists": true,
+      "clip_exists": true,
+      "all_valid": true
+    },
+    {
+      "visit_id": "75295225",
+      "track_id": 4,
+      "snapshot_entry": "outputs/snapshots/entry_75295225_t4.jpg",
+      "snapshot_peak": "outputs/snapshots/peak_75295225_t4.jpg",
+      "clip_path": "outputs/clips/clip_75295225_t4.mp4",
+      "entry_exists": true,
+      "peak_exists": true,
+      "clip_exists": true,
+      "all_valid": true
+    },
+    {
+      "visit_id": "92cdad1b",
+      "track_id": 5,
+      "snapshot_entry": "outputs/snapshots/entry_92cdad1b_t5.jpg",
+      "snapshot_peak": "outputs/snapshots/peak_92cdad1b_t5.jpg",
+      "clip_path": "outputs/clips/clip_92cdad1b_t5.mp4",
+      "entry_exists": true,
+      "peak_exists": true,
+      "clip_exists": true,
+      "all_valid": true
+    },
+    {
+      "visit_id": "acd99521",
+      "track_id": 6,
+      "snapshot_entry": "outputs/snapshots/entry_acd99521_t6.jpg",
+      "snapshot_peak": "outputs/snapshots/peak_acd99521_t6.jpg",
+      "clip_path": "outputs/clips/clip_acd99521_t6.mp4",
+      "entry_exists": true,
+      "peak_exists": true,
+      "clip_exists": true,
+      "all_valid": true
+    },
+    {
+      "visit_id": "ee76d1c2",
+      "track_id": 8,
+      "snapshot_entry": "outputs/snapshots/entry_ee76d1c2_t8.jpg",
+      "snapshot_peak": "outputs/snapshots/peak_ee76d1c2_t8.jpg",
+      "clip_path": "outputs/clips/clip_ee76d1c2_t8.mp4",
+      "entry_exists": true,
+      "peak_exists": true,
+      "clip_exists": true,
+      "all_valid": true
+    }
+  ],
+  "emitted_visits_summary": [
+    {
+      "visit_id": "6087555b",
+      "track_id": 1,
+      "merged_tracks": [
+        1
+      ],
+      "parent_visit_id": null,
+      "person_id": "P1",
+      "frames": "28-67",
+      "t_enter_s": 2.333,
+      "t_exit_s": 5.583,
+      "duration_s": 3.25,
+      "close_reason": "exited"
+    },
+    {
+      "visit_id": "f6ab295e",
+      "track_id": 3,
+      "merged_tracks": [
+        3
+      ],
+      "parent_visit_id": null,
+      "person_id": "P2",
+      "frames": "197-228",
+      "t_enter_s": 16.417,
+      "t_exit_s": 19.0,
+      "duration_s": 2.583,
+      "close_reason": "exited"
+    },
+    {
+      "visit_id": "06c39f17",
+      "track_id": 2,
+      "merged_tracks": [
+        2
+      ],
+      "parent_visit_id": null,
+      "person_id": "P3",
+      "frames": "197-234",
+      "t_enter_s": 16.417,
+      "t_exit_s": 19.5,
+      "duration_s": 3.083,
+      "close_reason": "exited"
+    },
+    {
+      "visit_id": "75295225",
+      "track_id": 4,
+      "merged_tracks": [
+        4
+      ],
+      "parent_visit_id": null,
+      "person_id": "P4",
+      "frames": "357-387",
+      "t_enter_s": 29.75,
+      "t_exit_s": 32.25,
+      "duration_s": 2.5,
+      "close_reason": "exited"
+    },
+    {
+      "visit_id": "92cdad1b",
+      "track_id": 5,
+      "merged_tracks": [
+        5
+      ],
+      "parent_visit_id": null,
+      "person_id": "P5",
+      "frames": "365-392",
+      "t_enter_s": 30.417,
+      "t_exit_s": 32.667,
+      "duration_s": 2.25,
+      "close_reason": "exited"
+    },
+    {
+      "visit_id": "acd99521",
+      "track_id": 6,
+      "merged_tracks": [
+        6
+      ],
+      "parent_visit_id": null,
+      "person_id": "P6",
+      "frames": "357-400",
+      "t_enter_s": 29.75,
+      "t_exit_s": 33.333,
+      "duration_s": 3.583,
+      "close_reason": "exited"
+    },
+    {
+      "visit_id": "ee76d1c2",
+      "track_id": 8,
+      "merged_tracks": [
+        8
+      ],
+      "parent_visit_id": "75295225",
+      "person_id": "P4",
+      "frames": "532-551",
+      "t_enter_s": 44.333,
+      "t_exit_s": 45.917,
+      "duration_s": 1.583,
+      "close_reason": "exited"
+    }
+  ]
+}

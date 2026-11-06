@@ -1,0 +1,39 @@
+{
+  "benchmark_metadata": {
+    "timestamp": "2026-11-06 02:58:32",
+    "video_source": "data/sample.mp4",
+    "camera_id": "cam_entrance_01",
+    "resolution": [
+      768,
+      432
+    ],
+    "native_fps": 12.0,
+    "effective_fps": 12.0,
+    "device": "cpu",
+    "model_architecture": "YOLO-yolo11n",
+    "tracker_architecture": "ByteTrack(buf=30)"
+  },
+  "performance_metrics": {
+    "total_frames_processed": 596,
+    "total_video_duration_s": 49.667,
+    "wall_clock_time_s": 22.579,
+    "overall_processing_fps": 26.4,
+    "average_detector_latency_ms": 35.81,
+    "average_tracker_latency_ms": 0.21,
+    "average_frame_latency_ms": 36.08
+  },
+  "perception_metrics": {
+    "total_raw_person_detections": 408,
+    "mean_detection_confidence": 0.8332,
+    "total_unique_track_ids": 7,
+    "unique_track_ids": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      8
+    ]
+  }
+}

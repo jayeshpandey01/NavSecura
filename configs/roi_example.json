@@ -1,0 +1,18 @@
+{
+  "roi_id": "roi_entrance",
+  "name": "Main Concourse Entrance Gateway",
+  "description": "Ground plane pedestrian concourse and entrance monitoring zone",
+  "camera_id": "cam_entrance_01",
+  "resolution": {
+    "width": 768,
+    "height": 432
+  },
+  "coordinates": [
+    [100, 230],
+    [670, 230],
+    [720, 415],
+    [50, 415]
+  ],
+  "foot_point_mode": "bottom_center"
+}
+

@@ -1,0 +1,9 @@
+visit_id,person_id,frame_enter,frame_exit,t_enter_s,t_exit_s,duration_s,roi_id,notes
+V01,P1,28,67,2.333,5.583,3.250,roi_entrance,nominal transit across concourse
+V02,P2,196,235,16.333,19.583,3.250,roi_entrance,pedestrian crossing with P3
+V03,P3,197,229,16.417,19.083,2.667,roi_entrance,pedestrian crossing with P2
+V04,P4,357,388,29.750,32.333,2.583,roi_entrance,crosses path with P5 and P6 moving left
+V05,P5,352,401,29.333,33.417,4.083,roi_entrance,boundary lingering along upper polygon edge and occlusion
+V06,P6,365,393,30.417,32.750,2.333,roi_entrance,moving right in convoy with P5
+V07,P6,532,552,44.333,46.000,1.667,roi_entrance,re-entry of P6 after 11.58s absence (>5s threshold)
+

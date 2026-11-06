@@ -383,3 +383,4 @@ For deep architectural analyses, theoretical formulations, and failure mode stud
 - [Ground Truth Annotation Protocol](file:///Users/jayesh/Documents/opencv/eval/label_visits.md): Methodology, timestamp rules, and Temporal IoU metrics for visit labeling.
 - [Demo Presentation Walkthrough](file:///Users/jayesh/Documents/opencv/docs/demo_walkthrough.md): Timestamped chronological narration of the split-screen presentation demo.
 
+# NavSecura

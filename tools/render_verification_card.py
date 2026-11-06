@@ -21,7 +21,9 @@ import numpy as np
 # Load evaluation results, ablation study, and tracker comparison telemetry
 eval_path = Path("eval/results.json")
 ablation_path = Path("eval/ablation_study.json")
-tracker_path = Path("outputs/tracker_comparison_meta.json")
+tracker_path = Path("outputs/telemetry/tracker_comparison_meta.json")
+if not tracker_path.exists():
+    tracker_path = Path("outputs/tracker_comparison_meta.json")
 
 with open(eval_path, "r", encoding="utf-8") as f:
     eval_res = json.load(f)
@@ -237,7 +239,8 @@ ax_sens.legend(lines, labels, facecolor="#1e293b", edgecolor="#475569", labelcol
 ax_sens.set_title("Hyperparameter Sensitivity: Grace & Dwell Sweeps", fontsize=11.5, fontweight="bold", color="#38ef7d", pad=10)
 
 # Save high-resolution PNG
-out_png = Path("outputs/evaluation_verification.png")
+out_png = Path("outputs/figures/evaluation_verification.png")
+out_png.parent.mkdir(parents=True, exist_ok=True)
 plt.savefig(str(out_png), facecolor=fig.get_facecolor(), edgecolor="none", bbox_inches="tight")
 plt.close(fig)
 

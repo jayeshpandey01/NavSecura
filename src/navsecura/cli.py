@@ -81,9 +81,27 @@ def _cmd_process_video(args: argparse.Namespace) -> int:
     return 0
 
 
+def _resolve_db_path(path_str: str) -> Path:
+    p = Path(path_str)
+    if not p.exists() and str(p) == "outputs/events.db":
+        cat = Path("outputs/database/events.db")
+        if cat.exists():
+            return cat
+    return p
+
+
+def _resolve_model_path(path_str: str) -> Path:
+    p = Path(path_str)
+    if not p.exists() and str(p) == "outputs/baseline_model.json":
+        cat = Path("outputs/telemetry/baseline_model.json")
+        if cat.exists():
+            return cat
+    return p
+
+
 def _cmd_report(args: argparse.Namespace) -> int:
     """Query SQLite event store and render a formatted Markdown summary table."""
-    db_path = Path(args.db)
+    db_path = _resolve_db_path(args.db)
     if not db_path.exists():
         logger.error("Database not found: %s", db_path)
         return 1
@@ -177,7 +195,7 @@ def _cmd_report(args: argparse.Namespace) -> int:
 
 def _cmd_export(args: argparse.Namespace) -> int:
     """Export SQLite visit database to JSON or CSV."""
-    db_path = Path(args.db)
+    db_path = _resolve_db_path(args.db)
     out_path = Path(args.output)
 
     if not db_path.exists():
@@ -239,12 +257,12 @@ def _cmd_audit(args: argparse.Namespace) -> int:
     """Audit recorded visits against learned statistical baselines."""
     from navsecura.analytics import StreamingVisitBaselines, synthesize_historical_dataset
 
-    db_path = Path(args.db)
+    db_path = _resolve_db_path(args.db)
     if not db_path.exists():
         logger.error("Database not found: %s", db_path)
         return 1
 
-    model_path = Path(args.model)
+    model_path = _resolve_model_path(args.model)
     if model_path.exists():
         logger.info("Loading pre-trained baseline model from '%s'...", model_path)
         baselines = StreamingVisitBaselines.load_from_json(model_path)
@@ -321,13 +339,13 @@ def build_parser() -> argparse.ArgumentParser:
     run_p.add_argument("--config", type=str, default="configs/default.yaml", help="Application YAML configuration")
     run_p.add_argument("--roi-config", type=str, default="configs/roi_example.json", help="ROI configuration file")
     run_p.add_argument("--tracker", type=str, default="bytetrack", choices=["bytetrack", "botsort"], help="Tracker algorithm")
-    run_p.add_argument("--output-video", type=str, default="outputs/sample_event_pipeline.mp4", help="Annotated video path")
-    run_p.add_argument("--output-db", type=str, default="outputs/events.db", help="SQLite database path")
-    run_p.add_argument("--output-json", type=str, default="outputs/sample_visits.json", help="Emitted visits JSON path")
-    run_p.add_argument("--output-csv", type=str, default="outputs/sample_visits.csv", help="Emitted visits CSV path")
-    run_p.add_argument("--events-json", type=str, default="outputs/events.json", help="Exported events JSON path")
-    run_p.add_argument("--events-csv", type=str, default="outputs/events.csv", help="Exported events CSV path")
-    run_p.add_argument("--meta", type=str, default="outputs/sample_event_pipeline_meta.json", help="Pipeline telemetry JSON")
+    run_p.add_argument("--output-video", type=str, default="outputs/videos/sample_event_pipeline.mp4", help="Annotated video path")
+    run_p.add_argument("--output-db", type=str, default="outputs/database/events.db", help="SQLite database path")
+    run_p.add_argument("--output-json", type=str, default="outputs/database/sample_visits.json", help="Emitted visits JSON path")
+    run_p.add_argument("--output-csv", type=str, default="outputs/database/sample_visits.csv", help="Emitted visits CSV path")
+    run_p.add_argument("--events-json", type=str, default="outputs/database/events.json", help="Exported events JSON path")
+    run_p.add_argument("--events-csv", type=str, default="outputs/database/events.csv", help="Exported events CSV path")
+    run_p.add_argument("--meta", type=str, default="outputs/telemetry/sample_event_pipeline_meta.json", help="Pipeline telemetry JSON")
     run_p.add_argument("--ground-truth", type=str, default="eval/ground_truth.csv", help="Ground truth CSV for evaluation")
     run_p.add_argument("--save-evidence", action="store_true", default=True, help="Generate forensic snapshots and video clips")
     run_p.add_argument("--no-evidence", action="store_false", dest="save_evidence", help="Disable evidence generation")
@@ -336,38 +354,38 @@ def build_parser() -> argparse.ArgumentParser:
 
     # 2. navsecura report
     report_p = subparsers.add_parser("report", help="Display formatted visit audit report from database")
-    report_p.add_argument("--db", type=str, default="outputs/events.db", help="SQLite database path")
+    report_p.add_argument("--db", type=str, default="outputs/database/events.db", help="SQLite database path")
     report_p.add_argument("--roi", type=str, default=None, help="Optional ROI polygon ID filter")
 
     # 3. navsecura export
     export_p = subparsers.add_parser("export", help="Export visit database to JSON or CSV")
-    export_p.add_argument("--db", type=str, default="outputs/events.db", help="SQLite database path")
+    export_p.add_argument("--db", type=str, default="outputs/database/events.db", help="SQLite database path")
     export_p.add_argument("--format", type=str, default="json", choices=["json", "csv"], help="Target format")
     export_p.add_argument("--output", type=str, required=True, help="Destination file path")
 
     # 4. navsecura baseline
     base_p = subparsers.add_parser("baseline", help="Synthesize diurnal baseline and train online models")
-    base_p.add_argument("--db", type=str, default="outputs/events.db", help="SQLite database path")
+    base_p.add_argument("--db", type=str, default="outputs/database/events.db", help="SQLite database path")
     base_p.add_argument("--roi", type=str, default="roi_entrance", help="Target ROI identifier")
     base_p.add_argument("--weeks", type=int, default=4, help="Historical weeks to simulate")
-    base_p.add_argument("--output", type=str, default="outputs/baseline_model.json", help="Model JSON output path")
+    base_p.add_argument("--output", type=str, default="outputs/telemetry/baseline_model.json", help="Model JSON output path")
     base_p.add_argument("--simulate-history", action="store_true", default=True, help="Synthesize diurnal reference history")
 
     # 5. navsecura audit
     audit_p = subparsers.add_parser("audit", help="Audit visits against statistical baselines and flag anomalies")
-    audit_p.add_argument("--db", type=str, default="outputs/events.db", help="SQLite database path")
+    audit_p.add_argument("--db", type=str, default="outputs/database/events.db", help="SQLite database path")
     audit_p.add_argument("--roi", type=str, default=None, help="Optional ROI polygon ID filter")
-    audit_p.add_argument("--model", type=str, default="outputs/baseline_model.json", help="Baseline model JSON path")
+    audit_p.add_argument("--model", type=str, default="outputs/telemetry/baseline_model.json", help="Baseline model JSON path")
     audit_p.add_argument("--threshold", type=float, default=0.65, help="Anomaly score threshold [0..1]")
     audit_p.add_argument("--use-recorded-timestamp", action="store_true", help="Strictly use machine execution timestamp")
 
     # 6. navsecura process-video
     proc_p = subparsers.add_parser("process-video", help="Process CCTV video and render labeled tracking diagnostics")
     proc_p.add_argument("--video", type=str, default="data/sample.mp4", help="Input video filepath")
-    proc_p.add_argument("--output", type=str, default="outputs/cctv_labeled_tracking.mp4", help="Annotated video destination")
+    proc_p.add_argument("--output", type=str, default="outputs/videos/cctv_labeled_tracking.mp4", help="Annotated video destination")
     proc_p.add_argument("--config", type=str, default="configs/default.yaml", help="Application YAML configuration")
     proc_p.add_argument("--roi-config", type=str, default="configs/roi_example.json", help="ROI configuration file")
-    proc_p.add_argument("--meta", type=str, default="outputs/cctv_processing_meta.json", help="Processing telemetry metadata JSON")
+    proc_p.add_argument("--meta", type=str, default="outputs/telemetry/cctv_processing_meta.json", help="Processing telemetry metadata JSON")
     proc_p.add_argument("--no-video", action="store_true", help="Skip video rendering and only compute metrics")
 
     return parser

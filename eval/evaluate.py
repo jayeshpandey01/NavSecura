@@ -235,7 +235,7 @@ def main() -> None:
     """Run formal visit evaluation and produce formatted report."""
     parser = argparse.ArgumentParser(description="Formal Visit-Level Evaluation Engine")
     parser.add_argument("--ground-truth", type=str, default="eval/ground_truth.csv", help="Ground truth CSV path")
-    parser.add_argument("--visits", "--predictions", dest="visits", type=str, default="outputs/sample_visits.json", help="Predicted visits JSON or CSV path")
+    parser.add_argument("--visits", "--predictions", dest="visits", type=str, default="outputs/database/sample_visits.json", help="Predicted visits JSON or CSV path")
     parser.add_argument("--roi-id", type=str, default="roi_entrance", help="Target ROI ID to filter")
     parser.add_argument("--output", type=str, default="eval/results.json", help="Results output JSON path")
     parser.add_argument("--iou-thresh", type=float, default=0.50, help="Temporal IoU threshold")
@@ -244,6 +244,10 @@ def main() -> None:
 
     gt_path = Path(args.ground_truth)
     pred_path = Path(args.visits)
+    if not pred_path.exists() and str(pred_path) == "outputs/sample_visits.json":
+        cat_p = Path("outputs/database/sample_visits.json")
+        if cat_p.exists():
+            pred_path = cat_p
 
     if not gt_path.exists():
         logger.error("Ground truth file not found: %s", gt_path)

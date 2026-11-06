@@ -193,8 +193,8 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="NavSecura Side-by-Side Tracker Benchmark")
     parser.add_argument("--video", type=str, default="data/sample.mp4", help="Video file path")
     parser.add_argument("--config", type=str, default="configs/default.yaml", help="Configuration file")
-    parser.add_argument("--output", type=str, default="outputs/tracker_comparison_meta.json", help="Telemetry output path")
-    parser.add_argument("--snapshot-dir", type=str, default="outputs/tracker_comparison", help="Snapshot output dir")
+    parser.add_argument("--output", type=str, default="outputs/telemetry/tracker_comparison_meta.json", help="Telemetry output path")
+    parser.add_argument("--snapshot-dir", type=str, default="outputs/figures/tracker_comparison", help="Snapshot output dir")
     args = parser.parse_args()
 
     video_path = Path(args.video)

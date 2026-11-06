@@ -37,7 +37,7 @@ def main() -> int:
     parser.add_argument(
         "--output",
         type=str,
-        default="outputs/cctv_labeled_tracking.mp4",
+        default="outputs/videos/cctv_labeled_tracking.mp4",
         help="Destination path for labeled video output",
     )
     parser.add_argument(
@@ -55,7 +55,7 @@ def main() -> int:
     parser.add_argument(
         "--meta",
         type=str,
-        default="outputs/cctv_processing_meta.json",
+        default="outputs/telemetry/cctv_processing_meta.json",
         help="Destination path for output telemetry metadata JSON",
     )
     parser.add_argument(

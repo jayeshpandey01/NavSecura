@@ -222,13 +222,16 @@ class EvidenceWriter:
     3. Event clip: Short, self-contained MP4 video with embedded telemetry HUD.
     """
 
-    def __init__(self, output_dir: Union[str, Path] = "outputs") -> None:
+    def __init__(self, output_dir: Union[str, Path] = "outputs/evidence") -> None:
         """Initialize EvidenceWriter and ensure target directories exist.
 
         Args:
             output_dir: Base directory for generated artifacts.
         """
-        self.output_dir = Path(output_dir)
+        p = Path(output_dir)
+        if str(p) == "outputs":
+            p = Path("outputs/evidence")
+        self.output_dir = p
         self.snapshots_dir = self.output_dir / "snapshots"
         self.clips_dir = self.output_dir / "clips"
 
@@ -324,7 +327,7 @@ class EvidenceWriter:
             pass
 
         # Return standardized relative path
-        rel_path = f"outputs/snapshots/{filename}"
+        rel_path = f"{dest_dir.as_posix()}/{filename}"
         return rel_path
 
     def save_peak_snapshot(
@@ -400,7 +403,7 @@ class EvidenceWriter:
         except Exception:
             pass
 
-        rel_path = f"outputs/snapshots/{filename}"
+        rel_path = f"{dest_dir.as_posix()}/{filename}"
         return rel_path
 
     def save_event_clip(
@@ -479,5 +482,5 @@ class EvidenceWriter:
         except Exception:
             pass
 
-        rel_path = f"outputs/clips/{filename}"
+        rel_path = f"{dest_dir.as_posix()}/{filename}"
         return rel_path

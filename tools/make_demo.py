@@ -491,9 +491,9 @@ class PresentationDemoRenderer:
         cv2.rectangle(canvas, (pane_x + 16, box_y), (pane_x + pane_w - 16, pane_y + pane_h - 14), self.BORDER_COLOR, 1)
 
         cv2.putText(canvas, "FORENSIC EVIDENCE INTEGRITY", (pane_x + 26, box_y + 20), cv2.FONT_HERSHEY_SIMPLEX, 0.38, self.TEXT_WHITE, 1)
-        cv2.putText(canvas, "[OK] Entry Snapshot: outputs/snapshots/*_entry.jpg", (pane_x + 26, box_y + 36), cv2.FONT_HERSHEY_SIMPLEX, 0.34, self.ACCENT_GREEN, 1)
-        cv2.putText(canvas, "[OK] Peak Crop: outputs/snapshots/*_peak.jpg", (pane_x + 26, box_y + 48), cv2.FONT_HERSHEY_SIMPLEX, 0.34, self.ACCENT_GREEN, 1)
-        cv2.putText(canvas, "[OK] 6s Video Clip: outputs/clips/*_clip.mp4", (pane_x + 26, box_y + 60), cv2.FONT_HERSHEY_SIMPLEX, 0.34, self.ACCENT_GREEN, 1)
+        cv2.putText(canvas, "[OK] Entry Snapshot: outputs/evidence/snapshots/*_entry.jpg", (pane_x + 26, box_y + 36), cv2.FONT_HERSHEY_SIMPLEX, 0.34, self.ACCENT_GREEN, 1)
+        cv2.putText(canvas, "[OK] Peak Crop: outputs/evidence/snapshots/*_peak.jpg", (pane_x + 26, box_y + 48), cv2.FONT_HERSHEY_SIMPLEX, 0.34, self.ACCENT_GREEN, 1)
+        cv2.putText(canvas, "[OK] 6s Video Clip: outputs/evidence/clips/*_clip.mp4", (pane_x + 26, box_y + 60), cv2.FONT_HERSHEY_SIMPLEX, 0.34, self.ACCENT_GREEN, 1)
 
 
 def main() -> None:
@@ -501,7 +501,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="NavSecura Multi-Pane Presentation Demo Generator")
     parser.add_argument("--video", default="data/sample.mp4", help="Path to input video")
     parser.add_argument(
-        "--output", default="outputs/navsecura_demo_presentation.mp4", help="Path to output presentation video"
+        "--output", default="outputs/videos/navsecura_demo_presentation.mp4", help="Path to output presentation video"
     )
     parser.add_argument("--registry", default="configs/roi_registry.json", help="Path to ROI registry")
     parser.add_argument("--roi-id", default="roi_entrance", help="Target ROI ID")

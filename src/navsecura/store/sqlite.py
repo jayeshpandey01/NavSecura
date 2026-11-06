@@ -70,13 +70,17 @@ class SQLiteEventStore:
     CREATE INDEX IF NOT EXISTS idx_visits_duration ON visits (duration_s);
     """
 
-    def __init__(self, db_path: Union[str, Path] = "outputs/events.db") -> None:
+    def __init__(self, db_path: Union[str, Path] = "outputs/database/events.db") -> None:
         """Initialize SQLite event store and execute schema migration.
 
         Args:
             db_path: Path to the SQLite database file.
         """
-        self.db_path = Path(db_path)
+        p = Path(db_path)
+        # Transparent backward-compatibility redirect if legacy outputs/events.db is requested
+        if str(p) == "outputs/events.db" and not p.exists() and Path("outputs/database/events.db").exists():
+            p = Path("outputs/database/events.db")
+        self.db_path = p
         self.db_path.parent.mkdir(parents=True, exist_ok=True)
 
         self.conn = sqlite3.connect(

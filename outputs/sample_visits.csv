@@ -1,8 +1,0 @@
-visit_id,person_id,frame_enter,frame_exit,t_enter_s,t_exit_s,duration_s,roi_id,notes
-6087555b-18bc-4a3c-bd42-0a7d89ffc170,P1,28,67,2.333,5.583,3.25,roi_entrance,exited
-f6ab295e-96ff-454f-9f48-dec5a21d216b,P2,197,228,16.417,19.0,2.583,roi_entrance,exited
-06c39f17-bc00-4ac1-a42a-2b89fe4d8da1,P3,197,234,16.417,19.5,3.083,roi_entrance,exited
-75295225-b1ba-4058-9ff2-b0a2dc56c704,P4,357,387,29.75,32.25,2.5,roi_entrance,exited
-92cdad1b-26e2-4311-a695-eca57e0db1bd,P5,365,392,30.417,32.667,2.25,roi_entrance,exited
-acd99521-bc54-427c-bacd-3e2f7ffcb767,P6,357,400,29.75,33.333,3.583,roi_entrance,exited
-ee76d1c2-cd98-4adc-b767-8fdec0e96c25,P4,532,551,44.333,45.917,1.583,roi_entrance,re-entry of P4 after 12.08s absence

@@ -53,7 +53,7 @@ flowchart TD
 
     subgraph Storage ["Persistence & Forensics (src/navsecura/store & evidence)"]
         Ring["Circular Video Ring Buffer\n(Pre-Roll Memory Window)"]
-        SQLite["SQLite WAL Event Store\n(ACID Event Log: outputs/events.db)"]
+        SQLite["SQLite WAL Event Store\n(ACID Event Log: outputs/database/events.db)"]
         Evidence["Evidence Writer\n(Snapshots & 6s MP4 Clips)"]
     end
 
@@ -109,20 +109,20 @@ navsecura run --video data/sample.mp4 --config configs/default.yaml --save-evide
 ### 3. Inspect Event History & Audit Telemetry
 ```bash
 # Display formatted on-screen audit table with verified evidence integrity
-navsecura report --db outputs/events.db
+navsecura report --db outputs/database/events.db
 
 # Score visits against streaming Poisson and Welford baselines
-navsecura audit --db outputs/events.db
+navsecura audit --db outputs/database/events.db
 
 # Export database to standalone JSON and CSV
-navsecura export --db outputs/events.db --format json --output outputs/events_export.json
-navsecura export --db outputs/events.db --format csv --output outputs/events_export.csv
+navsecura export --db outputs/database/events.db --format json --output outputs/database/events_export.json
+navsecura export --db outputs/database/events.db --format csv --output outputs/database/events_export.csv
 ```
 
 ### 4. Run the Full Test Suite
 ```bash
 PYTHONPATH=src pytest -v tests/
-# Output: 43 passed in ~2.5s (100% test pass rate)
+# Output: 46 passed in ~3.2s (100% test pass rate)
 ```
 
 ---
@@ -158,39 +158,39 @@ Evaluated against human-annotated ground truth in `eval/ground_truth.csv` at Tem
 
 ### C. Sample Execution Results: Individual Visit Match Audit (`data/sample.mp4`)
 
-![Evaluation Verification Scorecard](outputs/evaluation_verification.png)
+![Evaluation Verification Scorecard](outputs/figures/evaluation_verification.png)
 
 *Figure 1: Empirical verification matrix on `sample.mp4` — Ground truth vs. predicted visit temporal alignment Gantt chart (top), tracker association latency and throughput benchmark (bottom-left), and grace period & minimum dwell sensitivity ablation curves (bottom-right).*
 
-Ground truth visits from [`eval/ground_truth.csv`](file:///Users/jayesh/Documents/opencv/eval/ground_truth.csv) matched against predicted visits in [`outputs/events.db`](file:///Users/jayesh/Documents/opencv/outputs/events.db) at Temporal $\text{IoU} \ge 0.50$:
+Ground truth visits from [`eval/ground_truth.csv`](file:///Users/jayesh/Documents/opencv/eval/ground_truth.csv) matched against predicted visits in [`outputs/database/events.db`](file:///Users/jayesh/Documents/opencv/outputs/database/events.db) at Temporal $\text{IoU} \ge 0.50$:
 
 | GT ID | Pred Visit ID | Person | Ground Truth Interval | Predicted Pipeline Interval | Temporal IoU | Dwell Error | Entry Error | Forensic Evidence Link |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|---|
-| **V01** | `6087555b` | P1 | $2.33\text{s} - 5.58\text{s}$ ($3.25\text{s}$) | $2.33\text{s} - 5.58\text{s}$ ($3.25\text{s}$) | **1.000** | $0.000\text{s}$ | $0.000\text{s}$ | [`Snapshot`](outputs/snapshots/visit_6087555b_entry.jpg) / [`Clip`](outputs/clips/visit_6087555b.mp4) |
-| **V02** | `06c39f17` | P2 | $16.33\text{s} - 19.58\text{s}$ ($3.25\text{s}$) | $16.42\text{s} - 19.50\text{s}$ ($3.08\text{s}$) | **0.949** | $0.167\text{s}$ | $0.084\text{s}$ | [`Snapshot`](outputs/snapshots/visit_06c39f17_entry.jpg) / [`Clip`](outputs/clips/visit_06c39f17.mp4) |
-| **V03** | `f6ab295e` | P3 | $16.42\text{s} - 19.08\text{s}$ ($2.67\text{s}$) | $16.42\text{s} - 19.00\text{s}$ ($2.58\text{s}$) | **0.969** | $0.084\text{s}$ | $0.000\text{s}$ | [`Snapshot`](outputs/snapshots/visit_f6ab295e_entry.jpg) / [`Clip`](outputs/clips/visit_f6ab295e.mp4) |
-| **V04** | `75295225` | P4 | $29.75\text{s} - 32.33\text{s}$ ($2.58\text{s}$) | $29.75\text{s} - 32.25\text{s}$ ($2.50\text{s}$) | **0.968** | $0.083\text{s}$ | $0.000\text{s}$ | [`Snapshot`](outputs/snapshots/visit_75295225_entry.jpg) / [`Clip`](outputs/clips/visit_75295225.mp4) |
-| **V05** | `acd99521` | P5 | $29.33\text{s} - 33.42\text{s}$ ($4.08\text{s}$) | $29.75\text{s} - 33.33\text{s}$ ($3.58\text{s}$) | **0.877** | $0.500\text{s}$ | $0.417\text{s}$ | [`Snapshot`](outputs/snapshots/visit_acd99521_entry.jpg) / [`Clip`](outputs/clips/visit_acd99521.mp4) |
-| **V06** | `92cdad1b` | P6 | $30.42\text{s} - 32.75\text{s}$ ($2.33\text{s}$) | $30.42\text{s} - 32.67\text{s}$ ($2.25\text{s}$) | **0.964** | $0.083\text{s}$ | $0.000\text{s}$ | [`Snapshot`](outputs/snapshots/visit_92cdad1b_entry.jpg) / [`Clip`](outputs/clips/visit_92cdad1b.mp4) |
-| **V07** | `ee76d1c2` | P6 | $44.33\text{s} - 46.00\text{s}$ ($1.67\text{s}$) | $44.33\text{s} - 45.92\text{s}$ ($1.58\text{s}$) | **0.950** | $0.084\text{s}$ | $0.000\text{s}$ | [`Snapshot`](outputs/snapshots/visit_ee76d1c2_entry.jpg) / [`Clip`](outputs/clips/visit_ee76d1c2.mp4) |
+| **V01** | `6087555b` | P1 | $2.33\text{s} - 5.58\text{s}$ ($3.25\text{s}$) | $2.33\text{s} - 5.58\text{s}$ ($3.25\text{s}$) | **1.000** | $0.000\text{s}$ | $0.000\text{s}$ | [`Snapshot`](outputs/evidence/snapshots/visit_6087555b_entry.jpg) / [`Clip`](outputs/evidence/clips/visit_6087555b.mp4) |
+| **V02** | `06c39f17` | P2 | $16.33\text{s} - 19.58\text{s}$ ($3.25\text{s}$) | $16.42\text{s} - 19.50\text{s}$ ($3.08\text{s}$) | **0.949** | $0.167\text{s}$ | $0.084\text{s}$ | [`Snapshot`](outputs/evidence/snapshots/visit_06c39f17_entry.jpg) / [`Clip`](outputs/evidence/clips/visit_06c39f17.mp4) |
+| **V03** | `f6ab295e` | P3 | $16.42\text{s} - 19.08\text{s}$ ($2.67\text{s}$) | $16.42\text{s} - 19.00\text{s}$ ($2.58\text{s}$) | **0.969** | $0.084\text{s}$ | $0.000\text{s}$ | [`Snapshot`](outputs/evidence/snapshots/visit_f6ab295e_entry.jpg) / [`Clip`](outputs/evidence/clips/visit_f6ab295e.mp4) |
+| **V04** | `75295225` | P4 | $29.75\text{s} - 32.33\text{s}$ ($2.58\text{s}$) | $29.75\text{s} - 32.25\text{s}$ ($2.50\text{s}$) | **0.968** | $0.083\text{s}$ | $0.000\text{s}$ | [`Snapshot`](outputs/evidence/snapshots/visit_75295225_entry.jpg) / [`Clip`](outputs/evidence/clips/visit_75295225.mp4) |
+| **V05** | `acd99521` | P5 | $29.33\text{s} - 33.42\text{s}$ ($4.08\text{s}$) | $29.75\text{s} - 33.33\text{s}$ ($3.58\text{s}$) | **0.877** | $0.500\text{s}$ | $0.417\text{s}$ | [`Snapshot`](outputs/evidence/snapshots/visit_acd99521_entry.jpg) / [`Clip`](outputs/evidence/clips/visit_acd99521.mp4) |
+| **V06** | `92cdad1b` | P6 | $30.42\text{s} - 32.75\text{s}$ ($2.33\text{s}$) | $30.42\text{s} - 32.67\text{s}$ ($2.25\text{s}$) | **0.964** | $0.083\text{s}$ | $0.000\text{s}$ | [`Snapshot`](outputs/evidence/snapshots/visit_92cdad1b_entry.jpg) / [`Clip`](outputs/evidence/clips/visit_92cdad1b.mp4) |
+| **V07** | `ee76d1c2` | P6 | $44.33\text{s} - 46.00\text{s}$ ($1.67\text{s}$) | $44.33\text{s} - 45.92\text{s}$ ($1.58\text{s}$) | **0.950** | $0.084\text{s}$ | $0.000\text{s}$ | [`Snapshot`](outputs/evidence/snapshots/visit_ee76d1c2_entry.jpg) / [`Clip`](outputs/evidence/clips/visit_ee76d1c2.mp4) |
 
 ### D. Split-Screen Presentation Demo (Live Action Video)
 
-[![NavSecura Split-Screen Presentation Demo](outputs/demo_presentation.gif)](outputs/navsecura_demo_presentation.mp4)
+[![NavSecura Split-Screen Presentation Demo](outputs/videos/demo_presentation.gif)](outputs/videos/navsecura_demo_presentation.mp4)
 
 *Figure 2: Live Demo Presentation Video Preview — Left: CCTV stream with ground-plane foot-point tracking ($P_{\text{foot}}$) & polygon ROI; Right: Real-time dwell stopwatch and persistent SQLite WAL ledger.*  
-*(▶ Click banner above or play directly: [`outputs/navsecura_demo_presentation.mp4`](outputs/navsecura_demo_presentation.mp4) | Scene-by-scene narration: [`docs/demo_walkthrough.md`](docs/demo_walkthrough.md)).*
+*(▶ Click banner above or play directly: [`outputs/videos/navsecura_demo_presentation.mp4`](outputs/videos/navsecura_demo_presentation.mp4) | Scene-by-scene narration: [`docs/demo_walkthrough.md`](docs/demo_walkthrough.md)).*
 
 #### Key Interaction Checkpoint Diagnostics
 
 | Visual Diagnostic Verification | Split-Screen Demo Presentation HUD |
 |:---:|:---:|
-| ![Tracker Comparison Frame 215](outputs/tracker_comparison/compare_frame_0215.jpg) | ![Demo Split-Screen HUD](outputs/demo_frames/frame_0215_crossing_v02_v03.jpg) |
+| ![Tracker Comparison Frame 215](outputs/figures/tracker_comparison/compare_frame_0215.jpg) | ![Demo Split-Screen HUD](outputs/figures/demo_frames/frame_0215_crossing_v02_v03.jpg) |
 | **Tracker Comparison (Frame 215):** Left: ByteTrack (2-Stage Hungarian) vs. Right: BoT-SORT (GMC Motion Compensated) | **Demo Presentation (Frame 215):** Left: Live CCTV + Polygon ROI + Foot-Point + Trails; Right: Real-time Dwell Stopwatch & SQLite WAL Ledger |
 
 | Converging Group & Occlusion (Frame 380) | Re-entry Window Transit (Frame 540) |
 |:---:|:---:|
-| ![Tracker Comparison Frame 380](outputs/tracker_comparison/compare_frame_0380.jpg) | ![Tracker Comparison Frame 540](outputs/tracker_comparison/compare_frame_0540.jpg) |
+| ![Tracker Comparison Frame 380](outputs/figures/tracker_comparison/compare_frame_0380.jpg) | ![Tracker Comparison Frame 540](outputs/figures/tracker_comparison/compare_frame_0540.jpg) |
 | **Converging Group (Frame 380):** Multi-target occlusion recovery | **Re-entry Transit (Frame 540):** Return transit linked to Person P6 |
 
 ---
@@ -261,27 +261,27 @@ graph TD
 
 1. **Person ID (`person_id`, e.g. `P1`, `P2`):** Ground-truth identity of the physical person.
 2. **Tracklet ID (`track_id`, e.g. `1`, `2`):** Short-term tracker ID produced by ByteTrack / BoT-SORT Kalman association.
-3. **Visit ID (`visit_id`, e.g. `6087555b-4390-44a5`):** Cryptographic UUID assigned to the aggregated visit event in `outputs/events.db`.
+3. **Visit ID (`visit_id`, e.g. `6087555b-4390-44a5`):** Cryptographic UUID assigned to the aggregated visit event in `outputs/database/events.db`.
 
 ### E. Live CCTV Labeled Tracking Video
 
-[![CCTV Diagnostic Labeled Tracking Video](outputs/cctv_labeled_tracking.gif)](outputs/cctv_labeled_tracking.mp4)
+[![CCTV Diagnostic Labeled Tracking Video](outputs/videos/cctv_labeled_tracking.gif)](outputs/videos/cctv_labeled_tracking.mp4)
 
 *Figure 3: Live CCTV Labeled Tracking Preview — Person bounding boxes, ephemeral track IDs, motion trajectory trails, ground-plane foot-point contact crosshairs ($P_{\text{foot}}$), and dynamic polygon ROI transitions.*  
-*(▶ Click banner above or play directly: [`outputs/cctv_labeled_tracking.mp4`](outputs/cctv_labeled_tracking.mp4)).*
+*(▶ Click banner above or play directly: [`outputs/videos/cctv_labeled_tracking.mp4`](outputs/videos/cctv_labeled_tracking.mp4)).*
 
 ### F. CCTV Video Processing Quickstart
 Process any CCTV video file or RTSP stream and produce fully labeled tracking diagnostics:
 
 ```bash
 # 1. Process CCTV video and output fully labeled diagnostic MP4:
-navsecura process-video --video data/sample.mp4 --output outputs/cctv_labeled_tracking.mp4
+navsecura process-video --video data/sample.mp4 --output outputs/videos/cctv_labeled_tracking.mp4
 
 # 2. Or execute via standalone script with custom ROI configuration:
-python tools/process_cctv_video.py --video data/sample.mp4 --roi-config configs/roi_example.json --output outputs/cctv_labeled_tracking.mp4
+python tools/process_cctv_video.py --video data/sample.mp4 --roi-config configs/roi_example.json --output outputs/videos/cctv_labeled_tracking.mp4
 
 # 3. Process video, persist visit events to SQLite WAL, and extract forensic snapshots & clips:
-navsecura run --video data/sample.mp4 --output-video outputs/sample_event_pipeline.mp4 --save-evidence
+navsecura run --video data/sample.mp4 --output-video outputs/videos/sample_event_pipeline.mp4 --save-evidence
 ```
 
 ---
@@ -307,7 +307,7 @@ All operational behavior is controlled via `configs/default.yaml` without hardco
 
 ## 7. SQLite Database Schema & Data Dictionary
 
-Event history is persisted to `outputs/events.db` in SQLite **WAL (Write-Ahead Logging)** mode for high-concurrency zero-lock reading:
+Event history is persisted to `outputs/database/events.db` in SQLite **WAL (Write-Ahead Logging)** mode for high-concurrency zero-lock reading:
 
 ```sql
 CREATE TABLE IF NOT EXISTS visits (

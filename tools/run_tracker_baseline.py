@@ -369,13 +369,13 @@ def main() -> int:
     parser.add_argument(
         "--output",
         type=Path,
-        default=Path("outputs/sample_tracking_baseline.mp4"),
+        default=Path("outputs/videos/sample_tracking_baseline.mp4"),
         help="Path for saving annotated diagnostic MP4 video",
     )
     parser.add_argument(
         "--meta",
         type=Path,
-        default=Path("outputs/tracking_baseline_meta.json"),
+        default=Path("outputs/telemetry/tracking_baseline_meta.json"),
         help="Path for saving telemetry benchmark JSON",
     )
     parser.add_argument(

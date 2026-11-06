@@ -118,9 +118,11 @@ class SubmissionAuditor:
 
     def verify_database_and_evidence(self) -> None:
         """Verify SQLite events database and linked snapshot/clip files."""
-        db_path = self.root / "outputs" / "events.db"
+        db_path = self.root / "outputs" / "database" / "events.db"
         if not db_path.exists():
-            self.record("Event Persistence", False, "outputs/events.db not found")
+            db_path = self.root / "outputs" / "events.db"
+        if not db_path.exists():
+            self.record("Event Persistence", False, "outputs/database/events.db not found")
             return
 
         try:
@@ -157,7 +159,7 @@ class SubmissionAuditor:
         if not python_bin.exists():
             python_bin = Path(sys.executable)
 
-        cmd = [str(python_bin), "-m", "navsecura.cli", "report", "--db", "outputs/events.db"]
+        cmd = [str(python_bin), "-m", "navsecura.cli", "report", "--db", "outputs/database/events.db"]
         try:
             env = dict(os.environ)
             env["PYTHONPATH"] = str(self.root / "src")

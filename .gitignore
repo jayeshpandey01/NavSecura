@@ -20,3 +20,6 @@ Thumbs.db
 *.onnx
 outputs/baseline_model.json
 outputs/sample_tracking_baseline.mp4
+.agent/
+.agents/
+tests/

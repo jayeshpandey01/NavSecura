@@ -42,11 +42,11 @@ events:
     max_distance_px: 150.0
 
 store:
-  db_path: "outputs/events.db"
+  db_path: "outputs/database/events.db"
   wal_mode: true # Write-Ahead Logging for high-concurrency event ingestion
 
 evidence:
-  output_dir: "outputs"
+  output_dir: "outputs/evidence"
   save_snapshots: true
   save_clips: true
   pre_roll_s: 3.0 # seconds of footage buffered prior to ROI entry

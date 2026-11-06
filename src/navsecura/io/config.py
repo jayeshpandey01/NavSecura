@@ -89,14 +89,14 @@ class EventsConfig(BaseModel):
 class StoreConfig(BaseModel):
     """Event database persistence configuration."""
 
-    db_path: str = "outputs/events.db"
+    db_path: str = "outputs/database/events.db"
     wal_mode: bool = True
 
 
 class EvidenceConfig(BaseModel):
     """Evidence extraction and clip buffer configuration."""
 
-    output_dir: str = "outputs"
+    output_dir: str = "outputs/evidence"
     save_snapshots: bool = True
     save_clips: bool = True
     pre_roll_s: float = 3.0

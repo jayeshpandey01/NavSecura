@@ -170,10 +170,10 @@ def synthesize_historical_dataset(
 def main() -> None:
     """Execute baseline synthesis, training, and empirical visit scoring."""
     parser = argparse.ArgumentParser(description="NavSecura Streaming Pattern Learning and Anomaly Miner")
-    parser.add_argument("--db", type=str, default="outputs/events.db", help="Path to SQLite events database")
+    parser.add_argument("--db", type=str, default="outputs/database/events.db", help="Path to SQLite events database")
     parser.add_argument("--roi", type=str, default="roi_entrance", help="Target ROI identifier")
-    parser.add_argument("--output", type=str, default="outputs/pattern_learning_meta.json", help="Telemetry JSON output path")
-    parser.add_argument("--model-out", type=str, default="outputs/baseline_model.json", help="Saved baseline model JSON path")
+    parser.add_argument("--output", type=str, default="outputs/telemetry/pattern_learning_meta.json", help="Telemetry JSON output path")
+    parser.add_argument("--model-out", type=str, default="outputs/telemetry/baseline_model.json", help="Saved baseline model JSON path")
     parser.add_argument("--weeks", "--history-weeks", dest="weeks", type=int, default=4, help="Historical weeks to simulate")
     parser.add_argument("--eval-hour", type=int, default=14, help="Representative diurnal hour (0-23) for daytime concourse video")
     parser.add_argument("--eval-day", type=int, default=1, help="Representative day of week (0=Mon, 6=Sun)")

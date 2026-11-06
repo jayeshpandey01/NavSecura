@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "timestamp": "2026-11-06T08:46:22.316923+00:00",
+    "timestamp": "2026-11-06T09:07:06.956205+00:00",
     "simulation_label": "Simulated 4-Week Baseline Dataset (Non-Retraining)",
     "database_source": "outputs/events.db",
     "roi_id": "roi_entrance",
@@ -9,7 +9,7 @@
   },
   "statistical_model_summary": {
     "total_ingested_visits": 9,
-    "last_update_timestamp": "2026-11-06T14:16:21.629040",
+    "last_update_timestamp": "2026-11-06T14:37:06.190567",
     "half_life_days": 28.0,
     "dwell_z_threshold": 2.0,
     "hstree_threshold": 0.65,

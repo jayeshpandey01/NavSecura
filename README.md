@@ -174,7 +174,14 @@ Ground truth visits from [`eval/ground_truth.csv`](file:///Users/jayesh/Document
 | **V06** | `92cdad1b` | P6 | $30.42\text{s} - 32.75\text{s}$ ($2.33\text{s}$) | $30.42\text{s} - 32.67\text{s}$ ($2.25\text{s}$) | **0.964** | $0.083\text{s}$ | $0.000\text{s}$ | [`Snapshot`](outputs/snapshots/visit_92cdad1b_entry.jpg) / [`Clip`](outputs/clips/visit_92cdad1b.mp4) |
 | **V07** | `ee76d1c2` | P6 | $44.33\text{s} - 46.00\text{s}$ ($1.67\text{s}$) | $44.33\text{s} - 45.92\text{s}$ ($1.58\text{s}$) | **0.950** | $0.084\text{s}$ | $0.000\text{s}$ | [`Snapshot`](outputs/snapshots/visit_ee76d1c2_entry.jpg) / [`Clip`](outputs/clips/visit_ee76d1c2.mp4) |
 
-### D. Diagnostic Tracking & Multi-Pane Presentation Verification Images
+### D. Split-Screen Presentation Demo (Live Action Video)
+
+[![NavSecura Split-Screen Presentation Demo](outputs/demo_presentation.gif)](outputs/navsecura_demo_presentation.mp4)
+
+*Figure 2: Live Demo Presentation Video Preview — Left: CCTV stream with ground-plane foot-point tracking ($P_{\text{foot}}$) & polygon ROI; Right: Real-time dwell stopwatch and persistent SQLite WAL ledger.*  
+*(▶ Click banner above or play directly: [`outputs/navsecura_demo_presentation.mp4`](outputs/navsecura_demo_presentation.mp4) | Scene-by-scene narration: [`docs/demo_walkthrough.md`](docs/demo_walkthrough.md)).*
+
+#### Key Interaction Checkpoint Diagnostics
 
 | Visual Diagnostic Verification | Split-Screen Demo Presentation HUD |
 |:---:|:---:|
@@ -185,8 +192,6 @@ Ground truth visits from [`eval/ground_truth.csv`](file:///Users/jayesh/Document
 |:---:|:---:|
 | ![Tracker Comparison Frame 380](outputs/tracker_comparison/compare_frame_0380.jpg) | ![Tracker Comparison Frame 540](outputs/tracker_comparison/compare_frame_0540.jpg) |
 | **Converging Group (Frame 380):** Multi-target occlusion recovery | **Re-entry Transit (Frame 540):** Return transit linked to Person P6 |
-
-> **Sample Demo Presentation:** Complete $1440 \times 760$ split-screen presentation video available at [`outputs/navsecura_demo_presentation.mp4`](outputs/navsecura_demo_presentation.mp4) (Walkthrough guide: [`docs/demo_walkthrough.md`](docs/demo_walkthrough.md)). Full data characteristics and per-scenario breakdowns available in [`data/README.md`](data/README.md).
 
 ---
 
@@ -258,7 +263,14 @@ graph TD
 2. **Tracklet ID (`track_id`, e.g. `1`, `2`):** Short-term tracker ID produced by ByteTrack / BoT-SORT Kalman association.
 3. **Visit ID (`visit_id`, e.g. `6087555b-4390-44a5`):** Cryptographic UUID assigned to the aggregated visit event in `outputs/events.db`.
 
-### E. CCTV Video Processing Quickstart
+### E. Live CCTV Labeled Tracking Video
+
+[![CCTV Diagnostic Labeled Tracking Video](outputs/cctv_labeled_tracking.gif)](outputs/cctv_labeled_tracking.mp4)
+
+*Figure 3: Live CCTV Labeled Tracking Preview — Person bounding boxes, ephemeral track IDs, motion trajectory trails, ground-plane foot-point contact crosshairs ($P_{\text{foot}}$), and dynamic polygon ROI transitions.*  
+*(▶ Click banner above or play directly: [`outputs/cctv_labeled_tracking.mp4`](outputs/cctv_labeled_tracking.mp4)).*
+
+### F. CCTV Video Processing Quickstart
 Process any CCTV video file or RTSP stream and produce fully labeled tracking diagnostics:
 
 ```bash
